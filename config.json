@@ -1,7 +1,7 @@
 {
   "urls": [
     {
-      "url": "https://raw.githubusercontent.com/rss009/swagger-xss-test/main/xss-payload.yaml",
+      "url": "https://raw.githubusercontent.com/rss009/swagger-xss-tes/main/xss-payload.yaml",
       "name": "XSS Test API"
     }
   ]
